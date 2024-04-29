@@ -2,15 +2,15 @@
 "use client";
 import { addTodos } from "@/api";
 import React, { ChangeEvent, FormEvent } from "react";
+import { v4 as uuid4 } from "uuid";
 
 const AddTask = () => {
   const [taskTitle, setTaskTitle] = React.useState("");
-  
 
   const handleSubmit = async (e: FormEvent) => {
     e.preventDefault();
 
-    await addTodos({ id: "4", text: taskTitle });
+    await addTodos({ id: uuid4(), text: taskTitle });
 
     setTaskTitle("");
   };

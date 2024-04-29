@@ -1,7 +1,6 @@
-import Image from "next/image";
+import { getAllTodos } from "@/api";
 import AddTask from "./components/AddTask";
 import TodoList from "./components/todoList";
-import { getAllTodos } from "@/api";
 
 export default async function Home() {
   // 非同期通信のため、await必須。したらば、Homeにasyncをつける必要が出てくる
