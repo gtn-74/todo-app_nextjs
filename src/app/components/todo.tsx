@@ -1,5 +1,6 @@
 "use client";
 import { Task, deleteTodos, editTodos } from "@/api";
+import { useRouter } from "next/navigation";
 import React from "react";
 
 type TodoProps = {
@@ -7,6 +8,8 @@ type TodoProps = {
 };
 
 const Todo = ({ todo }: TodoProps) => {
+
+    const router = useRouter()
   // 入力値を更新する
   const [idSaving, setIdSaving] = React.useState(todo.text);
 
@@ -20,6 +23,7 @@ const Todo = ({ todo }: TodoProps) => {
   const handleSave = async () => {
     await editTodos(todo.id, idSaving);
     setIdEditing(false);
+    router.refresh()
   };
 
   // html属性にアクセスできるhooks
@@ -35,6 +39,7 @@ const Todo = ({ todo }: TodoProps) => {
   // deleteボタン
   const handleDelete = async () => {
     await deleteTodos(todo.id);
+    router.refresh();
   };
   return (
     <li
@@ -76,3 +81,7 @@ const Todo = ({ todo }: TodoProps) => {
 };
 
 export default Todo;
+/*
+useRouter
+
+*/

@@ -1,10 +1,13 @@
 // hooksを使う場合、use clientの記述が必要
 "use client";
 import { addTodos } from "@/api";
+import { useRouter } from "next/navigation";
+// import  Router  from "next/router";
 import React, { ChangeEvent, FormEvent } from "react";
 import { v4 as uuid4 } from "uuid";
 
 const AddTask = () => {
+  const router = useRouter();
   const [taskTitle, setTaskTitle] = React.useState("");
 
   const handleSubmit = async (e: FormEvent) => {
@@ -13,6 +16,12 @@ const AddTask = () => {
     await addTodos({ id: uuid4(), text: taskTitle });
 
     setTaskTitle("");
+
+    // useRouterを用いた画面リフレッシュ
+    router.refresh();
+
+    // クライアント側でしか使えない？
+    // Router.push('/')
   };
 
   return (
@@ -34,3 +43,4 @@ const AddTask = () => {
 };
 
 export default AddTask;
+//[router リフレッシュ] https://zenn.dev/nishiurahiroki/articles/9275209b157345
