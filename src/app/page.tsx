@@ -1,5 +1,5 @@
 import { getAllTodos } from "@/api";
-import AddTask from "./components/addTask";
+import AddTask from "./components/AddTask";
 import TodoList from "./components/todoList";
 
 export default async function Home() {
