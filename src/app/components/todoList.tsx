@@ -8,14 +8,11 @@ type TodoListProps = {
 
 const TodoList = ({ todos }: TodoListProps) => {
   return (
-    <>
-      {/* listが増えていく */}
-      <ul className="space-y-3">
-        {todos.map((todo) => (
-          <Todo key={todo.id} todo={todo}/>
-        ))}
-      </ul>
-    </>
+    <ul className="space-y-3">
+      {todos.map((todo) => (
+        <Todo key={todo.id} todo={todo} />
+      ))}
+    </ul>
   );
 };
 

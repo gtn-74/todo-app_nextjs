@@ -37,7 +37,7 @@ export const editTodos = async (id: string, newText: string): Promise<Task> => {
 // deleteAPI
 export const deleteTodos = async (id: string): Promise<Task> => {
   const res = await fetch(`http://localhost:3001/task/${id}`, {
-    method: "delete",
+    method: "DELETE",
     headers: { "Content-Type": "application/json" },
   });
   const deleteTodo = res.json();
