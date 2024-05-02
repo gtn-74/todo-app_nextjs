@@ -6,10 +6,10 @@ type TodoListProps = {
   todos: Task[];
 };
 
-const TodoList = ({ todos }: TodoListProps) => {
+const TodoList = (props: TodoListProps) => {
   return (
     <ul className="space-y-3">
-      {todos.map((todo) => (
+      {props.todos.map((todo) => (
         <Todo key={todo.id} todo={todo} />
       ))}
     </ul>
