@@ -1,11 +1,28 @@
-import { getAllTodos } from "@/api";
 import AddTask from "./components/addTask";
 import TodoList from "./components/todoList";
+import { MswGetAllFn } from "@/mockApi";
+import { getAllTodos } from "@/api";
 
+
+if (process.env.NODE_ENV === "development") {
+  if (typeof window === "undefined") {
+    const { server } = require("../mocks/server");
+    server.listen();
+  } else {
+    const { worker } = require("../mocks/browser");
+    worker.start();
+  }
+}
+MswGetAllFn()
+
+// 非同期通信のため、await必須。したらば、Homeにasyncをつける必要が出てくる
 export default async function Home() {
-  // 非同期通信のため、await必須。したらば、Homeにasyncをつける必要が出てくる
-  const todos = await getAllTodos();
-  console.log(todos);
+  // 本番API
+  // const todos = await getAllTodos();
+
+  // mockAPI
+  const todos = await MswGetAllFn();
+
   return (
     <main className="flex flex-col items-center justify-center min-h-screen py-2 bg-gray-200">
       <h1 className="text-4xl font-bold text-gray-700 -mt-32">
