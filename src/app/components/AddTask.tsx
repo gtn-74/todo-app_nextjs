@@ -1,7 +1,7 @@
 // hooksを使う場合、use clientの記述が必要
 "use client";
 import {  Task, addTodos } from "@/api";
-import {  MswPostAllFn } from "@/mockApi";
+import {  MswGetAllFn, MswPostAllFn } from "@/mockApi";
 import { useRouter } from "next/navigation";
 // import  Router  from "next/router";
 import React, { ChangeEvent, FormEvent } from "react";
@@ -21,13 +21,14 @@ const AddTask = () => {
   const router = useRouter();
   const [taskTitle, setTaskTitle] = React.useState("");
 
-  // mockPostAPI :Promise<Task[]> 
+  // mockPostAPI :Promise<Task[]>
 
   const handleSubmit = async (e: FormEvent)=> {
     e.preventDefault();
 
     // await addTodos({ id: uuid4(), text: taskTitle });
-    await MswPostAllFn();
+    await MswPostAllFn({ id: uuid4(), text: taskTitle });
+    // await MswGetAllFn()
     setTaskTitle("");
 
     // useRouterを用いた画面リフレッシュ

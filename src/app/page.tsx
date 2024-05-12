@@ -13,9 +13,9 @@ if (process.env.NODE_ENV === "development") {
     worker.start();
   }
 }
-MswGetAllFn()
+// MswGetAllFn()
 
-// 非同期通信のため、await必須。したらば、Homeにasyncをつける必要が出てくる
+// 非同期通信のため、await必須。そのため、Homeにasyncをつける必要が出てくる
 export default async function Home() {
   // 本番API
   // const todos = await getAllTodos();
