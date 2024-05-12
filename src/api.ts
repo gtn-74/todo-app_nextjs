@@ -14,13 +14,11 @@ export const addTodos = async (todo: Task): Promise<Task> => {
   const res = await fetch("http://localhost:3001/task", {
     method: "POST",
     headers: { "Content-Type": "application/json" },
-    body: JSON.stringify({id:'text',text:'text'}),
+    body: JSON.stringify(todo),
   });
   const newTodo = res.json();
   return newTodo;
 };
-
-
 
 // PUTAPI
 export const editTodos = async (id: string, newText: string): Promise<Task> => {
