@@ -5,7 +5,7 @@ export const handlers = [
   http.get("http://localhost:3003/get", () => {
     return HttpResponse.json(
       // console.log('a')
-      // [{ id: "111", text: "get data" }]
+      // 初期値
       [
         { id: "111", text: "おはようございます" },
         { id: "222", text: "こんにちは" },

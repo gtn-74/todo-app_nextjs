@@ -3,6 +3,7 @@
 import {  Task, addTodos } from "@/api";
 import {  MswGetAllFn, MswPostAllFn } from "@/mockApi";
 import { useRouter } from "next/navigation";
+// import { Router } from "next/router";
 // import  Router  from "next/router";
 import React, { ChangeEvent, FormEvent } from "react";
 import { v4 as uuid4 } from "uuid";
@@ -26,8 +27,8 @@ const AddTask = () => {
   const handleSubmit = async (e: FormEvent)=> {
     e.preventDefault();
 
-    // await addTodos({ id: uuid4(), text: taskTitle });
-    await MswPostAllFn({ id: uuid4(), text: taskTitle });
+    await addTodos({ id: uuid4(), text: taskTitle });
+    // await MswPostAllFn({ id: uuid4(), text: taskTitle });
     // await MswGetAllFn()
     setTaskTitle("");
 
