@@ -35,8 +35,14 @@ const AddTask = () => {
     // useRouterを用いた画面リフレッシュ
     router.refresh();
 
-    // クライアント側でしか使えない？
+    // https://nextjs.org/docs/app/building-your-application/routing/linking-and-navigating#userouter-hook
+    // クライアント側でしか使えない
     // Router.push('/')
+
+    // https://nextjs.org/docs/app/building-your-application/routing/linking-and-navigating#redirect-function
+    // サーバー側でページ遷移させる場合、redirectを使う
+    // redirect('/')
+
   };
 
   return (
