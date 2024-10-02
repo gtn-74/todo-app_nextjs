@@ -2,11 +2,10 @@ export type Task = {
   id: string;
   text: string;
 };
-// GETAPI
+// GetAPI
 export const getAllTodos = async (): Promise<Task[]> => {
   const res = await fetch("http://localhost:3001/task", { cache: "no-store" }); //キャッシュへのdata保存をしない
   const todos = res.json();
-
   return todos;
 };
 
@@ -18,7 +17,6 @@ export const addTodos = async (todo: Task): Promise<Task> => {
     body: JSON.stringify(todo),
   });
   const newTodo = res.json();
-
   return newTodo;
 };
 
@@ -30,7 +28,6 @@ export const editTodos = async (id: string, newText: string): Promise<Task> => {
     body: JSON.stringify({ text: newText }),
   });
   const updatedTodo = res.json();
-
   return updatedTodo;
 };
 
@@ -41,7 +38,6 @@ export const deleteTodos = async (id: string): Promise<Task> => {
     headers: { "Content-Type": "application/json" },
   });
   const deleteTodo = res.json();
-
   return deleteTodo;
 };
 

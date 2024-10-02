@@ -41,6 +41,7 @@ const Todo = ({ todo }: TodoProps) => {
     await deleteTodos(todo.id);
     router.refresh();
   };
+
   return (
     <li
       key={todo.id}
