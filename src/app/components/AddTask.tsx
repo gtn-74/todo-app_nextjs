@@ -27,8 +27,8 @@ const AddTask = () => {
   const handleSubmit = async (e: FormEvent)=> {
     e.preventDefault();
 
-    await addTodos({ id: uuid4(), text: taskTitle });
-    // await MswPostAllFn({ id: uuid4(), text: taskTitle });
+    // await addTodos({ id: uuid4(), text: taskTitle });
+    await MswPostAllFn({ id: uuid4(), text: taskTitle });
     // await MswGetAllFn()
     setTaskTitle("");
 

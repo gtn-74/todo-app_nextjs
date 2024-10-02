@@ -18,10 +18,10 @@ if (process.env.NODE_ENV === "development") {
 // 非同期通信のため、await必須。そのため、Homeにasyncをつける必要あり
 export default async function Home() {
   // 本番API
-  const todos = await getAllTodos();
+  // const todos = await getAllTodos();
 
   // mockAPI
-  // const todos = await MswGetAllFn();
+  const todos = await MswGetAllFn();
 
   return (
     <main className="flex flex-col items-center justify-center min-h-screen py-2 bg-gray-200">
